@@ -1,0 +1,47 @@
+.layui-footer{
+    text-align: center;
+    font-size: 12px;
+}
+
+.layui-body{
+    overflow: hidden;
+}
+iframe{
+    width: 100%;
+    height: 100%;
+}
+
+.iconfont{
+    margin-right: 5px;
+    font-size: 10px;
+}
+
+.layui-icon{
+    margin-left: 10px;
+    margin-right: 8px;
+    font-size: 8px;
+}
+
+#navater{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    /* 不可选 */
+    user-select: none;
+}
+
+#welcome{
+    color: #ffffff;
+}
+
+#text-avater{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-color: aqua;
+    border-radius: 50%;
+    vertical-align: middle;
+    text-align: center;
+}
