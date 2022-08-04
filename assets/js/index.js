@@ -1,34 +1,37 @@
-$(function(){
-    // 获取用户的基本信息
-    $.ajax({
-        url:'/my/userinfo',
-        method:'GET',
-        // 发送请求头配置对象 
-        // headers:{Authorization:localStorage.getItem('token') || ''},
-        success:function(res){
-            if(res.status !== 0){
-                return layui.layer.msg('获取用户信息失败')
+getUserinfo()
+// 获取用户的基本信息
+function getUserinfo(){
+        $.ajax({
+            url:'/my/userinfo',
+            method:'GET',
+            // 发送请求头配置对象 
+            // headers:{Authorization:localStorage.getItem('token') || ''},
+            success:function(res){
+                if(res.status !== 0){
+                    return layui.layer.msg('获取用户信息失败')
+                }
+                console.log(res);
+                // 渲染用户头像等
+                renderAvater(res.data)
+            },
+    
+            // 控制用户的访问权限
+            // 每次发起有权限的访问时，无论成功与否，都会调用complete回调函数
+            complete:function(res){
+                // 在complete回调函数中，可以使用responseJSON拿到服务器响应回来的数据
+                res.responseJSON.status
+                if(res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！'){
+                    // 点击确定后要执行内容
+                    // 把存储在localstorage中的token字符串删除
+                    localStorage.removeItem('token')
+                    location.href = '/login.html'
+    
+                }
             }
-            console.log(res);
-            // 渲染用户头像等
-            renderAvater(res.data)
-        },
+        })
+}
+    
 
-        // 控制用户的访问权限
-        // 每次发起有权限的访问时，无论成功与否，都会调用complete回调函数
-        complete:function(res){
-            // 在complete回调函数中，可以使用responseJSON拿到服务器响应回来的数据
-            res.responseJSON.status
-            if(res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！'){
-                // 点击确定后要执行内容
-                // 把存储在localstorage中的token字符串删除
-                localStorage.removeItem('token')
-                location.href = '/login.html'
-
-            }
-        }
-    })
-})
 
 //渲染用户头像
 function renderAvater(user){

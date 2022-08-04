@@ -10,14 +10,14 @@ $.ajaxPrefilter(function(options){
     }
 
     // 优化控制用户的访问权限的代码
-    options.complete = function(res){
-        // 在complete回调函数中，可以使用responseJSON拿到服务器响应回来的数据
-        res.responseJSON.status
-        if(res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！'){
-            // 点击确定后要执行内容
-            // 把存储在localstorage中的token字符串删除
-            localStorage.removeItem('token')
-            location.href = '/login.html'
-        }
-    }
+    // options.complete = function(res){
+    //     // 在complete回调函数中，可以使用responseJSON拿到服务器响应回来的数据
+    //     res.responseJSON.status
+    //     if(res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！'){
+    //         // 点击确定后要执行内容
+    //         // 把存储在localstorage中的token字符串删除
+    //         localStorage.removeItem('token')
+    //         location.href = '/login.html'
+    //     }
+    // }
 })

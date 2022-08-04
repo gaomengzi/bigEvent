@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更改密码</title>
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/assets/css/user-psd.css">
+</head>
+<body>
+    <!-- 卡片面板 -->
+    <div class="layui-card">
+        <div class="layui-card-header">修改密码</div>
+        <div class="layui-card-body">
+            <!-- 表单区域 -->
+            <form class="layui-form" action="">
+                <!-- 旧密码 -->
+                <div class="layui-form-item">
+                  <label class="layui-form-label">原密码</label>
+                  <div class="layui-input-block">
+                    <input type="password" name="oldpsd" required  lay-verify="required|pass" placeholder="请输入原密码" autocomplete="off" class="layui-input">
+                  </div>
+                </div>
+                <!-- 新密码 -->
+                <div class="layui-form-item">
+                  <label class="layui-form-label">新密码</label>
+                  <div class="layui-input-block">
+                    <input type="password" name="newpsd" required  lay-verify="required|pass" placeholder="请输入新密码" autocomplete="off" class="layui-input">
+                  </div>
+                </div>
+                <!-- 再次输入密码 -->
+                <div class="layui-form-item">
+                  <label class="layui-form-label">再次确认密码</label>
+                  <div class="layui-input-block">
+                    <input type="password" name="repsd" required  lay-verify="required|pass" placeholder="请再次确认密码" autocomplete="off" class="layui-input">
+                  </div>
+                </div>
+                <!-- 提交和重置按钮 -->
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+
+      <script src="/assets/lib/layui/layui.all.js"></script>
+      <script src="/assets/js/baseAPI.js"></script>
+      <script src="/assets/js/user-psd.js"></script>
+</body>
+</html>
